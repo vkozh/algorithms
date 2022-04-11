@@ -20,19 +20,21 @@ const sort = {
 
     bubble_: function (arr) {
         const res = [...arr];
-        for (let i = 0; i + 1 < res.length; i++) {
-            for (let j = 0; j + 1 < res.length - i; j++) {
+        for (let i = 0; i + 1 < res.length; ++i) {
+            for (let j = 0; j + 1 < res.length - i; ++j) {
                 if (res[j + 1] < res[j]) {
-                    const tmp = res[i + 1];
+                    const tmp = res[j + 1];
                     res[j + 1] = res[j];
                     res[j] = tmp;
                 }
             }
         }
         return res;
-    }
+    },
     // шейкерная
-
+    shaker: function (arr) {
+        return arr
+    }
     // расческой
 
     // вставками
