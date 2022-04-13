@@ -38,4 +38,16 @@ describe('bubble sorting', () => {
     test('[40, 100, 1, 5, 25, 10] to equal [1, 5, 10, 25, 40, 100]', () => {
         expect(sort.bubble_([40, 100, 1, 5, 25, 10])).toEqual([1, 5, 10, 25, 40, 100])
     })
+    test('[] to equal []', () => {
+        expect(sort.bubble_([])).toEqual([])
+    })
+    test('[5, -1, -3, 0, 5] to equal [-3, -1, 0, 5, 5]', () => {
+        expect(sort.bubble_([5, -1, -3, 0, 5])).toEqual([-3, -1, 0, 5, 5])
+    })
+})
+
+describe('sharer sorting', () => {
+    test('[40, 100, 1, 5, 25, 10] to equal [1, 5, 10, 25, 40, 100]', () => {
+        expect(sort.shaker([40, 100, 1, 5, 25, 10])).toEqual([40, 100, 1, 5, 25, 10])
+    })
 })

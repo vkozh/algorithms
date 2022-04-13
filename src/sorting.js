@@ -20,8 +20,8 @@ const sort = {
 
     bubble_: function (arr) {
         const res = [...arr];
-        for (let i = 0; i + 1 < res.length; ++i) {
-            for (let j = 0; j + 1 < res.length - i; ++j) {
+        for (let i = 0; i < res.length; ++i) {
+            for (let j = 0; j < res.length - i; ++j) {
                 if (res[j + 1] < res[j]) {
                     const tmp = res[j + 1];
                     res[j + 1] = res[j];
@@ -33,7 +33,28 @@ const sort = {
     },
     // шейкерная
     shaker: function (arr) {
-        return arr
+        const res = [...arr];
+        let left = 0;
+        let right = res.length - 1;
+        while (left > right) {
+            for (let i = 0; i < res.length; i++) {
+                if (res[i] > res[i + 1]) {
+                    const tmp = res[i];
+                    res[i] = res[i + 1];
+                    res[i + 1] = tmp;
+                    --right;
+                }
+            }
+            for (let j = res.length; j > 0; j--) {
+                if (res[j] < res[j + 1]) {
+                    const tmp = res[j];
+                    res[j] = res[j + 1];
+                    res[j + 1] = tmp;
+                    ++left;
+                }
+            }
+        }
+        return res;
     }
     // расческой
 
