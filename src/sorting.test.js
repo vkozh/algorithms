@@ -13,7 +13,7 @@ describe('test jest', () => {
     });
 })
 
-describe('tricky sorting', () => {
+describe('tricky sort', () => {
     test('[] to equal ""', () => {
         expect(sort.tricky([])).toEqual('')
     })
@@ -31,7 +31,7 @@ describe('tricky sorting', () => {
     })
 })
 
-describe('bubble sorting', () => {
+describe('bubble sort', () => {
     test('lazy: [40, 100, 1, 5, 25, 10] to equal [1, 5, 10, 25, 40, 100]', () => {
         expect(sort.bubble([40, 100, 1, 5, 25, 10])).toEqual([1, 5, 10, 25, 40, 100])
     })
@@ -46,8 +46,50 @@ describe('bubble sorting', () => {
     })
 })
 
-describe('sharer sorting', () => {
+describe('shaker sort', () => {
     test('[40, 100, 1, 5, 25, 10] to equal [1, 5, 10, 25, 40, 100]', () => {
-        expect(sort.shaker([40, 100, 1, 5, 25, 10])).toEqual([40, 100, 1, 5, 25, 10])
+        expect(sort.shaker([40, 100, 1, 5, 25, 10])).toEqual([1, 5, 10, 25, 40, 100])
+    })
+})
+
+describe('comb sort', () => {
+    test('[40, 100, 1, 5, 25, 10] to equal [1, 5, 10, 25, 40, 100]', () => {
+        expect(sort.comb([40, 100, 1, 5, 25, 10])).toEqual([1, 5, 10, 25, 40, 100])
+    })
+    test('[5, -1, -3, 0, 5] to equal [-3, -1, 0, 5, 5]', () => {
+        expect(sort.comb([5, -1, -3, 0, 5])).toEqual([-3, -1, 0, 5, 5])
+    })
+})
+
+describe('insertion sort', () => {
+    test('[40, 100, 1, 5, 25, 10] to equal [1, 5, 10, 25, 40, 100]', () => {
+        expect(sort.insertion([40, 100, 1, 5, 25, 10])).toEqual([1, 5, 10, 25, 40, 100])
+    })
+    test('[5, -1, -3, 0, 5] to equal [-3, -1, 0, 5, 5]', () => {
+        expect(sort.insertion([5, -1, -3, 0, 5])).toEqual([-3, -1, 0, 5, 5])
+    })
+})
+
+describe('selection sort', () => {
+    test('[40, 100, 1, 5, 25, 10] to equal [1, 5, 10, 25, 40, 100]', () => {
+        expect(sort.selection([40, 100, 1, 5, 25, 10])).toEqual([1, 5, 10, 25, 40, 100])
+    })
+    test('[5, -1, -3, 0, 5] to equal [-3, -1, 0, 5, 5]', () => {
+        expect(sort.selection([5, -1, -3, 0, 5])).toEqual([-3, -1, 0, 5, 5])
+    })
+})
+
+describe('quick sort', () => {
+    test('[40, 100, 1, 5, 25, 10] to equal [1, 5, 10, 25, 40, 100]', () => {
+        expect(sort.quick([40, 100, 1, 5, 25, 10])).toEqual([1, 5, 10, 25, 40, 100])
+    })
+    test('[40, 100, 1, 5, 25, 10] to equal [1, 5, 10, 25, 40, 100]', () => {
+        expect(sort.quick([40, 100, 1, 5, 25, 10])).toEqual([1, 5, 10, 25, 40, 100])
+    })
+    test('[] to equal []', () => {
+        expect(sort.quick([])).toEqual([])
+    })
+    test('[5, -1, -3, 0, 5] to equal [-3, -1, 0, 5, 5]', () => {
+        expect(sort.quick([5, -1, -3, 0, 5])).toEqual([-3, -1, 0, 5, 5])
     })
 })

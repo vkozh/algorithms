@@ -32,13 +32,27 @@ describe('task floors', () => {
 })
 
 describe('task paper', () => {
-    test('[1, 2, 1, 3, 5], k=2 to equal 16', () => {
-        expect(tinkoff.paper([1, 2, 1, 3, 5], 2)).toEqual(16);
+    // test('[1, 2, 1, 3, 5], k=2 to equal 16', () => {
+    //     expect(tinkoff.paper([1, 2, 1, 3, 5], 2)).toEqual(16);
+    // })
+    // test('[99, 5, 85], k=1 to equal 10', () => {
+    //     expect(tinkoff.paper([99, 5, 85], 1)).toEqual(10);
+    // })
+    // test('[999], k=10 to equal 0', () => {
+    //     expect(tinkoff.paper([999], 10)).toEqual(0);
+    // })
+    // test('[0, 0, 0], k=2 to equal 18', () => {
+    //     expect(tinkoff.paper([0, 0, 0], 2)).toEqual(18);
+    // })
+    // test('[1, 1, 1], k=2 to equal 24', () => {
+    //     expect(tinkoff.paper([1, 1, 1], 3)).toEqual(24);
+    // })
+    test('[0, 0, 100, 111], k=100 to equal 1805', () => {
+        expect(tinkoff.paper([0, 0, 100, 111], 7)).toEqual(1797);
     })
-    test('[99, 5, 85], k=1 to equal 10', () => {
-        expect(tinkoff.paper([99, 5, 85], 1)).toEqual(10);
+    test('[0, 0, 100, 111], k=100 to equal 1805', () => {
+        expect(tinkoff.paper([0, 0, 100, 111], 100)).toEqual(1805);
     })
-    test('[999], k=10 to equal 0', () => {
-        expect(tinkoff.paper([999], 10)).toEqual(0);
-    })
+
+    //одно число в массиве
 })

@@ -48,30 +48,65 @@ const tinkoff = {
     На какое максимальное значение Костя сможет увеличить сумму всех чисел на листочке? */
 
     paper: function (data, k) {
-        let total = 0
-        let maxLength = data
+        let total = 0;
+        let maxLength = data;
         if (data.length > 1) {
-            maxLength = data.sort((a, b) => f(a) > f(b) ? -1 : f(a) > f(b) ? 0 : 1)
-        }
-        for (let i = 0; i < k; i++) {
-            if (maxLength[i]) {
-                const tmp = maxLength[i] + '';
-                maxLength[i] = 9 + tmp.slice(1);
-                total += maxLength[i] - tmp;
-            }
+            maxLength = data
+                .sort((a, b) => dif(b) - dif(a))
         }
 
-        function f(strNum) {
-            let newNum = ''.concat(strNum)
-            for (let i = 0; i < newNum.length; i++) {
-                if (newNum[i] < 9) {
-                    newNum = newNum
-                        .slice(0, i) + '9' + newNum.slice(i + 1, newNum.length);
-                    break;
-                }
+        //добавить повторный проход по числу, если остались k
+        const newArr = data
+        let j = 0
+        for (let i = 0; i < k; i++) { // + проверку можно ли чтото еще изменить, чтобы не работать в холостую
+
+            if (data.length > 1) {
+                maxLength = maxLength
+                    .sort((a, b) => dif(b) - dif(a))
             }
+            if (j == maxLength.length) {
+                j = 0;
+            }
+            // if (maxLength[j] !== undefined) //j = 0;
+            // {
+            // console.log(maxLength[j], '=>', dif(maxLength[j]));
+            total += dif(maxLength[j]);
+            console.log(maxLength)
+            const {
+                newNum,
+                takedK
+            } = getNewNum(maxLength[j]);
+            k = takedK
+            maxLength[j] = newNum
+            j++;
+            //}
+        }
+
+        function dif(strNum) {
+            let {
+                newNum
+            } = getNewNum(strNum);
             return +newNum - +strNum;
         }
+
+        function getNewNum(strNum, k) {
+            let newNum = ''.concat(strNum);
+            let j = 0;
+            for (j = 1; j <= k; j++) {
+                for (let i = 0; i < newNum.length; i++) {
+                    if (newNum[i] < 9) {
+                        newNum = newNum
+                            .slice(0, i) + '9' + newNum.slice(i + 1, newNum.length);
+                        break;
+                    }
+                }
+            }
+            return {
+                newNum: newNum,
+                takedK: k - j
+            };
+        }
+        // console.log('maxLength', maxLength)
         return total;
     },
 }
